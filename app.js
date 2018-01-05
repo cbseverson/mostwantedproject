@@ -2,7 +2,6 @@ function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
     case 'yes':
-      // do you need to run functions to make characters the correct case?
       var foundPerson = searchByName(people);
       mainMenu(foundPerson, people);
     break;
@@ -32,7 +31,6 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
       var info = displayPerson(person);
-      alert(info);
       mainMenu(person, people);
     break;
     case "family":
@@ -42,8 +40,6 @@ function mainMenu(person, people){
     break;
     case "descendants":
       //need to use recursion - just limit to by blood relatives - children and grandchildren
-      // var descendants = 
-      // return descendants;
       mainMenu(person, people);
     break;
     case "restart":
@@ -76,7 +72,7 @@ function height(people){
   var userInput = prompt("Do you know height?");
     if(userInput === "yes"){
     var height = promptFor("What is the person's height in inches?", chars);
-    var foundPerson = people.filter(function(person){
+    var foundPerson = people.filter(function(){
       if (person.height === height){
         return true;
       }
@@ -96,7 +92,7 @@ function weight(people){
   var userInput = prompt("Do you know weight?");
     if(userInput === "yes"){
     var weight = promptFor("What is the person's weight in pounds?", chars);
-    var foundWeight = people.filter(function(person){
+    var foundWeight = people.filter(function(){
       if (person.weight === weight){
         return true;
       }
@@ -117,7 +113,7 @@ function age(people){
   var userInput = prompt("Do you know age?");
     if(userInput === "yes"){
     var age = promptFor("What is the person's age in years?", chars);
-    var foundAge = people.filter(function(person){
+    var foundAge = people.filter(function(){
       if (person.age === age){
         return true;
         }
@@ -137,7 +133,7 @@ function occupation(people){
   var userInput = prompt("Do you know occupation?");
     if (userInput === "yes"){
     var occupation = promptFor("What is the person's occupation?", chars);
-    var foundOccupation = people.filter(function(person){
+    var foundOccupation = people.filter(function(){
       if (person.occupation === occupation){
         return true;
       }
@@ -157,7 +153,7 @@ function eyeColor(people){
   var userInput = prompt("Do you know their eye color?")
     if (userInput === "yes"){
     var eyeColor = promptFor("What is the person's eye color?", chars);
-    var foundEyeColor = people.filter(function(person){
+    var foundEyeColor = people.filter(function(){
       if (person.EyeColor === EyeColor){
         return true;
       }
@@ -198,11 +194,11 @@ function displayPeople(people){
 function displayPerson(person){
   var personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  personInfo += "Height" + height + "\n";
-  personInfo += "Weight" + weight + "\n";
-  personInfo += "Age" + dob + "\n";
-  personInfo += "Occupation" + occupation + "\n";
-  personInfo += "Eye color" + eyeColor + "\n";
+  personInfo += "Height " + person.height + "\n";
+  personInfo += "Weight " + person.weight + "\n";
+  personInfo += "Age " + person.dob + "\n";
+  personInfo += "Occupation " + person.occupation + "\n";
+  personInfo += "Eye color " + person.eyeColor + "\n";
   alert(personInfo);
 }
 
